@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMS - Conservatoire Les Solistes</title>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+</head>
+<body>
+  <script>
+    DecapCMS.init({
+      config: {
+        backend: {
+          name: "git-gateway",
+          branch: "main"
+        },
+        media_folder: "public/images",
+        public_folder: "/images",
+        collections: [
+          {
+            name: "events",
+            label: "Spectacles / Événements",
+            folder: "data/events",
+            create: true,
+            fields: [
+              { label: "Titre", name: "title", widget: "string" },
+              { label: "Date (ex: 15 juin 2025 - 20h00)", name: "date", widget: "string" },
+              { label: "Description", name: "description", widget: "text" },
+              { label: "Image URL", name: "image", widget: "image", required: false }
+            ]
+          },
+          {
+            name: "testimonials",
+            label: "Témoignages",
+            folder: "data/testimonials",
+            create: true,
+            fields: [
+              { label: "Citation", name: "quote", widget: "text" },
+              { label: "Auteur", name: "author", widget: "string" }
+            ]
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>
