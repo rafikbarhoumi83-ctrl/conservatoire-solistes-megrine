@@ -4,14 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CMS - Conservatoire Les Solistes</title>
-  <!-- Netlify Identity obligatoire pour l'authentification -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    // Empêcher les erreurs de channel fermé
+    window.netlifyIdentity = window.netlifyIdentity || {};
+    window.netlifyIdentity.on = function() {};
+  </script>
 </head>
 <body>
-  <!-- Decap CMS va s'injecter automatiquement ici -->
   <div id="root"></div>
-  <!-- Chargement de Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <!-- Pas besoin d'appel manuel, Decap CMS lit automatiquement admin/config.yml -->
 </body>
 </html>
